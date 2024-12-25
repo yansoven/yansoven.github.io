@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yan's Oven</title>
+    <link rel="stylesheet" href="./asset/CSS/main.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header ">
+        <div class="logo">
+            <a href="./home.html"><img src="./asset/image 2 (1).png" class="logo-img"></a>
+            <a href="./home.html" class="logo-txt"><img src="./asset/Yan’s Oven.png" alt=""></a>
+        </div>
+        
+        <nav>
+            <div class="navbar">
+               <a href="./home.html">Home</a>
+                <a href="./menu.html" >Menu</a>
+                <a href="./review.html">Review</a>
+                <a href="./order.html" class="active">Order</a>
+            </div>
+        </nav>
+    </header>
+
+<main> </main>
+    <div class="header-order">
+        <div class="container-cart">
+         <img src="./asset/cart.png" alt="" width="100px" height="100px">
+        </div>
+        <div class="container-order">
+            <h1>Submit a Form <br> To Order!</h1>
+        </div>
+    </div>
+    <br><br>
+    <section class="order">
+        <p> Untuk melakukan pemesanan, silahkan isi formulir di bawah ini!</p>
+        <br>
+        <form onsubmit="redirectToWhatsApp(); return false;">
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <div class="phone-input">
+                    <select id="phone-prefix">
+                        <option value="+62">+62</option>
+                    </select>
+                    <input type="tel" id="phone" placeholder="Phone number" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <div class="name-input">
+                    <input type="text" id="name" placeholder="First name" required>
+                    <input type="text" id="lastname" placeholder="Last name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="Address" required>
+            </div>
+            <div class="form-group">
+                <label for="order-details">Order Details</label>
+                <textarea id="order-details" placeholder="Input your orders here" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </section>
+
+        <p>Ada kesulitan atau pertanyaan? Hubungi kami!</p>
+        <div class="contact-btn">
+            <a href="https://wa.me/081310881160"><button>Contact Us!</button></a>
+        </div>
+    </div>
+  </main>
+    <footer class="footer">
+        <img src="./asset/Yan’s Oven.png" alt="" height="20px" width="auto">
+        <br><br>
+        <br>
+        <p>Contacts: 0813-1088-1160</p>
+        <br>
+        <p>Address: Jl.Bougenville IV, Blok D.33, RT03/RW07, Kecamatan Sukaraja, Kabupaten Bogor, Jawa Barat 16710</p>
+        <br><br><br>
+        <p>Yan's Oven All rights Reserved</p>
+    </footer>
+    <script>
+        function redirectToWhatsApp() {
+            let name = document.getElementById("name").value;
+            let lastname = document.getElementById("lastname").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let orderDetails = document.getElementById("order-details").value;
+
+            let message = `Halo, saya ${name} ${lastname} ingin memesan dengan detail:\n\nNomor Telepon: ${phone}\nAlamat: ${address}\n\n${orderDetails}`;
+            let phoneNumber = "6281310881160";
+            let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
